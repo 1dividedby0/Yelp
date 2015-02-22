@@ -26,7 +26,7 @@ class YelpClient: BDBOAuth1RequestOperationManager {
     }
     
     func searchWithTerm(term: String, success: (AFHTTPRequestOperation!, AnyObject!) -> Void, failure: (AFHTTPRequestOperation!, NSError!) -> Void) -> AFHTTPRequestOperation! {
-        var parameters = ["term": term, "location": "San Francisco"]
+        var parameters = ["term": term, "location": "Los Altos"]
         if term.isEmpty{
            parameters["term"] = "restaurant"
         }

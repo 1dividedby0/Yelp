@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     var searchBar = UISearchBar()
     var client: YelpClient!
+    var filterCategories:String = ""
     var results: [Business] = []
     //var businesses:[Business]
     var yelpConsumerKey = "SsW3_QOnrtbykV-0ZjyUjg"
@@ -72,19 +73,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBarHidden=false;
         self.tableView.registerNib(UINib(nibName: "BusinessTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "BusinessCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate = self
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 116
+        //self.tableView.estimatedRowHeight = 116
         self.tableView.reloadData()
+        println("dsfldlfnskldnflkdnflkns\(filterCategories)")
         self.navigationItem.titleView = searchBar
         client = YelpClient(consumerKey: yelpConsumerKey, consumerSecret: yelpConsumerSecret, accessToken: yelpToken, accessSecret: yelpTokenSecret)
         
-        client.searchWithTerm("", success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-            println(response["businesses"])
+        client.searchWithTerm(self.filterCategories, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            //println(response["businesses"])
             let results = (response["businesses"] as Array).map({
                 (business: NSDictionary) -> Business in
                 return Business(info: business)
