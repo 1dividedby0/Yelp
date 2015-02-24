@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol FilterViewCellDelegate : class{
+    func filterView(filterCell: FilterTableViewCell, didChangeSwitchValue value: Bool)
+}
 class FilterTableViewCell: UITableViewCell {
 
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var indicatorSwitch: UISwitch!
+    
+    weak var delegate:FilterViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,6 +27,10 @@ class FilterTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func switchDidChangeAction(sender: AnyObject) {
+        delegate?.filterView(self, didChangeSwitchValue: indicatorSwitch.on)
     }
 
 }

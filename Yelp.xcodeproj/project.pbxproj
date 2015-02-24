@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		60587272CF66AA040175D9C8 /* libPods-Yelp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D349CD6F6FDA743447C265FF /* libPods-Yelp.a */; };
 		E44602C51A99B134003ECC48 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44602C41A99B134003ECC48 /* FilterTableViewCell.swift */; };
+		E44602C71A9A67CD003ECC48 /* FoodTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44602C61A9A67CD003ECC48 /* FoodTypes.swift */; };
 		E479C7381A96A5980066113D /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E479C7361A96A5980066113D /* BusinessTableViewCell.swift */; };
 		E479C7391A96A5980066113D /* BusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E479C7371A96A5980066113D /* BusinessTableViewCell.xib */; };
 		E479C73B1A96E5B80066113D /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = E479C73A1A96E5B80066113D /* Business.swift */; };
 		E479C76C1A97ECEC0066113D /* BusinessMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E479C76A1A97ECEC0066113D /* BusinessMapViewController.swift */; };
-		E479C76D1A97ECEC0066113D /* BusinessMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E479C76B1A97ECEC0066113D /* BusinessMapViewController.xib */; };
 		E479C76F1A993F3A0066113D /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E479C76E1A993F3A0066113D /* FiltersViewController.swift */; };
 		E48876E11A9579750057B439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48876E01A9579750057B439 /* AppDelegate.swift */; };
 		E48876E31A9579750057B439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48876E21A9579750057B439 /* ViewController.swift */; };
@@ -38,11 +38,11 @@
 		A8401441AC98A3618B98C871 /* Pods-Yelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp/Pods-Yelp.debug.xcconfig"; sourceTree = "<group>"; };
 		D349CD6F6FDA743447C265FF /* libPods-Yelp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yelp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44602C41A99B134003ECC48 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		E44602C61A9A67CD003ECC48 /* FoodTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTypes.swift; sourceTree = "<group>"; };
 		E479C7361A96A5980066113D /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
 		E479C7371A96A5980066113D /* BusinessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessTableViewCell.xib; sourceTree = "<group>"; };
 		E479C73A1A96E5B80066113D /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		E479C76A1A97ECEC0066113D /* BusinessMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessMapViewController.swift; sourceTree = "<group>"; };
-		E479C76B1A97ECEC0066113D /* BusinessMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessMapViewController.xib; sourceTree = "<group>"; };
 		E479C76E1A993F3A0066113D /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		E48876DB1A9579750057B439 /* Yelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48876DF1A9579750057B439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,8 +122,8 @@
 				E479C7371A96A5980066113D /* BusinessTableViewCell.xib */,
 				E479C73A1A96E5B80066113D /* Business.swift */,
 				E479C76A1A97ECEC0066113D /* BusinessMapViewController.swift */,
-				E479C76B1A97ECEC0066113D /* BusinessMapViewController.xib */,
 				E44602C41A99B134003ECC48 /* FilterTableViewCell.swift */,
+				E44602C61A9A67CD003ECC48 /* FoodTypes.swift */,
 			);
 			path = Yelp;
 			sourceTree = "<group>";
@@ -248,7 +248,6 @@
 				E479C7391A96A5980066113D /* BusinessTableViewCell.xib in Resources */,
 				E48876EB1A9579750057B439 /* LaunchScreen.xib in Resources */,
 				E48876E81A9579750057B439 /* Images.xcassets in Resources */,
-				E479C76D1A97ECEC0066113D /* BusinessMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E48876E31A9579750057B439 /* ViewController.swift in Sources */,
+				E44602C71A9A67CD003ECC48 /* FoodTypes.swift in Sources */,
 				E479C76C1A97ECEC0066113D /* BusinessMapViewController.swift in Sources */,
 				E479C76F1A993F3A0066113D /* FiltersViewController.swift in Sources */,
 				E479C7381A96A5980066113D /* BusinessTableViewCell.swift in Sources */,

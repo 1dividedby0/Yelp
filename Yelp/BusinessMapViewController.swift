@@ -11,19 +11,29 @@ import MapKit
 class BusinessMapViewController: UIViewController {
     
     
-    @IBOutlet weak var mapView: MKMapView!
-    var business:Business!
+    //@IBOutlet weak var mapView: MKMapView!
+    var results:[Business]!
+    //var annotations:[MKPointAnnotation]!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        println("\(results)IOJSDOFJNLS:DF:LONSFNOSDJLNFLJSDNFKJNSDFKLJNSKJDLFNKLJSDNFJNSDJfijjejrejerjkgkndkaerg;kerkjerkjkjr;erkj")
         let location = CLLocationCoordinate2D(
             latitude: 37.774929,
             longitude: -122.419416
         )
-        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let span = MKCoordinateSpanMake(0.15, 0.15)
         let region = MKCoordinateRegion(center: location, span: span)
-        println(business.latitude)
-        mapView.setRegion(region, animated: true)
+        //mapView.setRegion(region, animated: true)
+        for business in results{
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: business.latitude, longitude: business.longitude)
+        let annotation = MKPointAnnotation()
+        annotation.setCoordinate(location)
+        annotation.title = business.name
+        annotation.subtitle = business.address
+        println("ifkdshnlksfjndjkmfn\(annotation)")
+        //mapView.addAnnotation(annotation)
+        }
     }
 
     override func didReceiveMemoryWarning() {

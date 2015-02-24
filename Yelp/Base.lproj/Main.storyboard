@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ler-U4-nIG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ler-U4-nIG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="KGp-m8-ZSf"/>
@@ -29,9 +29,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ler-U4-nIG" secondAttribute="bottom" id="4dj-Dl-I87"/>
-                            <constraint firstItem="Ler-U4-nIG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="TE8-vx-VuI"/>
+                            <constraint firstItem="Ler-U4-nIG" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="H4q-rg-1hl"/>
                             <constraint firstItem="Ler-U4-nIG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jAF-Ez-mj1"/>
+                            <constraint firstItem="Ler-U4-nIG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="oYO-OQ-IKI"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Ler-U4-nIG" secondAttribute="bottom" id="rhV-Mq-i5Z"/>
                             <constraint firstAttribute="trailing" secondItem="Ler-U4-nIG" secondAttribute="trailing" id="rv8-7o-BzJ"/>
                         </constraints>
                     </view>
@@ -41,11 +42,17 @@
                                 <segue destination="4ph-mE-KAB" kind="push" id="iAf-X5-ZVn"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="WEc-4Q-HEO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="WEc-4Q-HEO">
+                            <connections>
+                                <action selector="mapAction:" destination="BYZ-38-t0r" id="b5Y-SL-6LV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="mapButton" destination="WEc-4Q-HEO" id="YTe-88-ecA"/>
                         <outlet property="tableView" destination="Ler-U4-nIG" id="xMv-t3-aqL"/>
+                        <segue destination="kLq-U6-InN" kind="push" identifier="toMap" id="ZkF-M5-HP9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -72,11 +79,14 @@
                                                 <constraint firstAttribute="width" constant="230" id="CcI-MQ-EiW"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="68Z-Jt-2xE">
                                             <rect key="frame" x="263" y="6" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchDidChangeAction:" destination="Rca-Tp-gh1" eventType="valueChanged" id="mGj-7o-RiF"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <constraints>
@@ -106,6 +116,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchButton" destination="ozA-GT-gvP" id="pqL-pR-HAu"/>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="backFromFilterSegue" id="cLZ-3H-49l"/>
@@ -114,6 +125,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Awp-w6-ASH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2145" y="337"/>
+        </scene>
+        <!--Business Map View Controller-->
+        <scene sceneID="SNY-Sh-sZB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="shB-FS-0n3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="kLq-U6-InN" customClass="BusinessMapViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NJi-a5-5IG"/>
+                        <viewControllerLayoutGuide type="bottom" id="FhE-yd-UGP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RVt-QP-jWL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="snF-cl-1PZ"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1734" y="976"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kbq-gg-iQe">

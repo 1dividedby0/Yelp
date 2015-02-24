@@ -11,6 +11,7 @@ import MapKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate  {
     
+    @IBOutlet weak var mapButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     var searchBar = UISearchBar()
     var client: YelpClient!
@@ -31,10 +32,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var cell = tableView.cellForRowAtIndexPath(indexPath) as BusinessTableViewCell
         var business = self.results[indexPath.row]
-        var mapView = self.storyboard?.instantiateViewControllerWithIdentifier("MapViewController") as BusinessMapViewController
-        mapView.business = business
-        mapView.mapView = MKMapView()
-        self.navigationController?.pushViewController(mapView, animated: true)
         println("\(business.name) SELECTED")
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -108,7 +105,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+    @IBAction func mapAction(sender: AnyObject) {
+        self.performSegueWithIdentifier("toMap", sender: mapButton)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toMap"{
+            var main:BusinessMapViewController = segue.destinationViewController as BusinessMapViewController
+            main.results = self.results
+    }
 }
-
+}
